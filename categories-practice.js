@@ -58,7 +58,7 @@ function listCategories() {
     console.log("there is no categories");
     return [];
   }
-  //////////categaries//////////
+ console.log("Categories:");
   categories.forEach((category) => {
     console.log(`${category.id} - ${category.name}`);
   });
