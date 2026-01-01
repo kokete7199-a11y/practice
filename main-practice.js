@@ -28,6 +28,7 @@ function handleChoice(choice) {
       rl.question("Enter category name: ", (name) => {
         const newCategory = categories.addCategory(name);
         console.log(`Category "${newCategory.name}" added successfully.`);
+          showMenuAndPrompt();
       });
       break;
 
@@ -67,7 +68,7 @@ function handleChoice(choice) {
       showMenuAndPrompt();
       break;
     case "5":
-      rl.question("أدخل رقم الصنف: ", (categoryIdInput) => {
+      rl.question("Enter category ID: ", (categoryIdInput) => {
         const categoryId = parseInt(categoryIdInput);
         items.listItemsByCategory(categoryId);
         showMenuAndPrompt();
@@ -75,10 +76,10 @@ function handleChoice(choice) {
       break;
 
     case "6":
-      rl.question("أدخل اسم الزبون: ", (customerName) => {
+      rl.question("Enter customer name: ", (customerName) => {
         const newOrder = orders.createOrder(customerName);
         console.log(
-          `تم إنشاء طلب جديد برقم ${newOrder.id} للزبون ${newOrder.customerName}`
+          `A new order has been created with ID ${newOrder.id} for customer ${newOrder.customerName}`
         );
         showMenuAndPrompt();
       });
@@ -154,7 +155,7 @@ function handleChoice(choice) {
 
 function showMenuAndPrompt() {
   showMenu();
-  rl.question("Enter your choice: ", handleChoice());
+  rl.question("Enter your choice: ", handleChoice);
 }
 console.log("welcome in resturant mangement system");
 showMenuAndPrompt();
