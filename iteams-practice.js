@@ -39,7 +39,8 @@ function getAllItems() {
 function addItem(name, price, CategoryId) {
 
 if (typeof price !=="number"  || price<=0){
-  throw new error("price must be number and bigger than 0");
+  throw new Error("price must be number and bigger than 0");
+
     
 };
 

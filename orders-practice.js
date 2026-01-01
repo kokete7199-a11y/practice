@@ -1,5 +1,4 @@
 const fs = require("fs");
-const { get } = require("http");
 const path = require("path");
 
 const file = path.join(__dirname, "data", "order.json");
@@ -17,7 +16,7 @@ function readData() {
   }
 };
 
-function writeData(){
+function writeData(data){
     try{
 folder=path.dirname(file);
 if(!fs.existsSync(folder)){
@@ -83,16 +82,28 @@ function addItemToOrder(orderId, item, qty) {
     };
 
     orders[orderIndex].orderItems.push(orderItem);
-    saveData(orders);
+    writeData(orders);
+
     return true;
 }
 
 
 function getOrderById(orderId) {
-    const orders = readData();
+ const orders = readData() || [];
+
     return orders.find(order => order.id === orderId);
 }
 
+function getOrderTotal(order) {
+    
+    if (!order || !order.orderItems || order.orderItems.length === 0) {
+        return 0;
+    }
+    
+    return order.orderItems.reduce((total, item) => {
+        return total + item.lineTotal;
+    }, 0);
+}
 
 function printInvoice(order) {
     if (!order) {
