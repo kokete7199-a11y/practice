@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "kabab",
+        "price": 5,
+        "CategoryId": 1
+    },
+    {
+        "id": 2,
+        "name": "pizza",
+        "price": 7,
+        "CategoryId": 2
+    }
+]
