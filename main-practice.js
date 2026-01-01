@@ -1,7 +1,7 @@
 const readline = require("readline");
-const categories = require("./categories");
-const items = require("./items");
-const orders = require("./orders");
+const categories = require("./categories-practice");
+const items = require("./iteams-practice");
+const orders = require("./orders-practice");
 
 const rl = readline.createInterface({
   input: process.stdin,
